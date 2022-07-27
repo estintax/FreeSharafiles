@@ -33,6 +33,7 @@ for storage in storages["storages"]:
     if storage["date"] == latest:
         latest_id = i
     print("[{}] {}".format(i, storage["date"]))
+    i = i+1
 input_text = input("Выберите нужную дату дампа, или нажмите Enter для загрузки последнего: [{}] ".format(latest_id))
 if input_text != "" and input_text not in storages_arr:
     print("Неверный ввод")
