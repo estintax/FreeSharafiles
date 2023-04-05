@@ -20,7 +20,7 @@ print("FreeSharaFiles (c) 2022 Maksim Pinigin")
 print("Лучше поздно, чем никогда")
 
 # Получения списка дампов хранилища
-r = requests.get("https://sdirg.eix.by/nsf/storages.php")
+r = requests.get("https://pinig.in/nsf/storages.php")
 storages = r.json()
 latest = storages["latest"]
 latest_id = 0
