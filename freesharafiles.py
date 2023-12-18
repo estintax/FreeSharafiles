@@ -104,7 +104,7 @@ for url in storage:
         del r
         print("Скачан файл {} ({}/{})".format(url, i, len(storage)-1))
     except:
-        print("Неудалось загрузить файл {}! ({}/{})".format(url, i, len(storage)))
+        print("Не удалось загрузить файл {}! ({}/{})".format(url, i, len(storage)))
         try:
             f.close()
         except:
