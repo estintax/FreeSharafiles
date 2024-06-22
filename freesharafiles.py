@@ -4,6 +4,7 @@ import signal
 import gzip
 import os
 
+SHARABALL_BASE_URI = "https://shararam.ru"
 processing = True
 
 # Хандлер нажатия на Ctrl+C
@@ -71,14 +72,14 @@ print("Всего файлов для загрузки: {}+2".format(len(storage
 
 # Загрузка отсутствующего в дампе файла
 f = open("./output/fs/3p897j5lf4e0j.swf", "wb")
-r = requests.get("https://sharaball.ru/fs/{}".format("3p897j5lf4e0j.swf"), headers={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'})
+r = requests.get("{}/fs/{}".format(SHARABALL_BASE_URI, "3p897j5lf4e0j.swf"), headers={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'})
 f.write(r.content)
 f.close()
 print("Скачан файл {}".format("3p897j5lf4e0j.swf"))
 
 # Загрузка base.swf
 f = open("./output/base.swf", "wb")
-r = requests.get("https://sharaball.ru/{}".format("base.swf"), headers={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'})
+r = requests.get("{}/{}".format(SHARABALL_BASE_URI, "base.swf"), headers={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'})
 f.write(r.content)
 f.close()
 print("Скачан файл {}".format("base.swf"))
@@ -98,7 +99,7 @@ for url in storage:
             i += 1
             continue
         f = open("./output/fs/{}".format(url), "wb")
-        r = requests.get("https://sharaball.ru/fs/{}".format(url), headers={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'})
+        r = requests.get("{}/fs/{}".format(SHARABALL_BASE_URI, url), headers={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'})
         f.write(r.content)
         f.close()
         del r
